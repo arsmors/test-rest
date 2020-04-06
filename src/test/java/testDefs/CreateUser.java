@@ -2,6 +2,7 @@ package testDefs;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.ValidatableResponse;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -63,6 +64,9 @@ public class CreateUser {
         user.setGender(responseFields.get("gender"));
 
         response.then().body("result.first_name", equalTo(user.getFirstName())).extract().jsonPath().getString("result.id");
+        response.then().body("result.last_name", equalTo(user.getLastName())).extract().jsonPath().getString("result.id");
+        response.then().body("result.email", equalTo(user.getEmail())).extract().jsonPath().getString("result.id");
+        response.then().body("result.gender", equalTo(user.getGender())).extract().jsonPath().getString("result.id");
     }
 
 
@@ -79,4 +83,9 @@ public class CreateUser {
     }
 
 
+    @When("^the user wants to get a record of existing user id \"([^\"]*)\"$")
+    public void theUserWantsToGetARecordOfExistingUserId(String id) {
+        response = given().auth().oauth2(API).when()
+                .get("https://gorest.co.in/public-api/users/"+id);
+    }
 }

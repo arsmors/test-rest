@@ -25,13 +25,7 @@ public class CreateUser {
 
     String API = "wMFQtp27-QrHHF7wdQM7AHZzVcsP_CZOVEdd";
 
-
-    @Given("^A user with valid access token$")
-    public void aUserWithValidAccessToken() {
-
-    }
-
-    @And("^the user wants to create a record with given credentials")
+    @When("^the user wants to create a record with given credentials")
     public void theUserWantsToCreateARecordWithFirstNameAs(Map<String, String> requestFields) {
         RestUser user = new RestUser();
         user.setFirstName(requestFields.get("first_name"));
@@ -43,7 +37,7 @@ public class CreateUser {
 
     }
 
-    @When("^user submits the user data in \"([^\"]*)\"$")
+    @And("^user submits the user data in \"([^\"]*)\"$")
     public void userSubmitsTheUserDataIn(String url) {
         response = request.when().post(url);
 

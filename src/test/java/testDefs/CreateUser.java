@@ -82,4 +82,13 @@ public class CreateUser {
         response = given().auth().oauth2(API).when()
                 .get("https://gorest.co.in/public-api/users/"+id);
     }
+
+
+    @When("^patch existing user with info$")
+    public void patchExistingUserWithInfo(Map<String, String> requestFields) {
+
+        request = given().contentType(ContentType.JSON).auth().oauth2(API).with().body(requestFields);
+        response = request.when().patch("https://gorest.co.in/public-api/users/13417");
+
+    }
 }

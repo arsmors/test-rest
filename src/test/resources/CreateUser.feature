@@ -18,5 +18,5 @@ Feature: Create a user in database
 
     Examples:
       | first_name | last_name | email           | gender |
-      | arsens     | morins    | test11@test1.lv | male   |
+      | arsens     | morins    | test11@test2.lv | male   |
 #      | arsens     | morins    |                 | male   |

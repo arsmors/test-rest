@@ -14,5 +14,5 @@ Feature: Update existing user
       | gender     | <gender>     |
 
     Examples:
-      | first_name | last_name | email           | gender |
-      | donald1     | duck1   | testtest1@test.com | male   |
+      | first_name | last_name | email              | gender |
+      | donald1    | duck1     | testtest1@test.com | male   |

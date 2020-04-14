@@ -88,7 +88,7 @@ public class CreateUser {
     public void patchExistingUserWithInfo(Map<String, String> requestFields) {
 
         request = given().contentType(ContentType.JSON).auth().oauth2(API).with().body(requestFields);
-        response = request.when().patch("https://gorest.co.in/public-api/users/13417");
+        response = request.when().patch("https://gorest.co.in/public-api/users/14217");
 
     }
 }
